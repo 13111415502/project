@@ -1,0 +1,87 @@
+{% extends "./layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/css/pc/blogs.css">
+<link rel="stylesheet" href="/css/pc/swiper-bundle.min.css">
+<div class="main">
+    <div class="content">
+
+
+         {%for item in content%}
+        <div class="box">
+            <div class="box-img">
+                <img src="{{item.img}}" alt="">
+            </div>
+            <div class="box-title">
+                <p class="title-name">{{item.name}}</p>
+                <p class="title-code">{{item.code}}</p>
+                <a href="/blogs/details/{{item.id}}"><p class="title-title">{{item.title}}</p></a>
+            </div>
+
+        </div>
+         {% endfor %}
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="column">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="../img/pc/4.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="../img/pc/5.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="../img/pc/6.jpg" alt=""></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        <p class="column-p ppp">精选</p>
+        {%for item in content%}
+        <div class="column-banner">
+            <img src="{{item.img}}" alt="" class="column-logo">
+            <div class="column-banner-title">
+                <p class="column-p">{{item.name}} </p>
+                <div class="column-btn">
+                    <a href="/blogs/details/{{item.id}}">阅读</a>
+                </div>
+            </div>  
+           
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+<script src="/js/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  
+</script>
+
+
+
+{% endblock %}

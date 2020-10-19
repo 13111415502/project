@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    margin-left: 0.25rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+.section{
+    width: 7rem;
+    margin: 0 auto;
+}
+
+.click{
+    width: 6.5rem;
+    height: 1rem;
+    border-bottom: 0.01rem solid #b3b3b3;
+}
+.click p{
+    line-height: 0.8rem;
+    margin-left: 0.8rem;
+    font-size: 0.2rem;
+}
+
+.list-ul{
+    width: 5rem;
+    display: none;
+    margin-top: 0rem;
+    margin-bottom: 0.5rem;
+}
+.list-ul li{
+    width: 5.3rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    list-style: none;
+    border-bottom: 0.01rem solid #b3b3b3;
+    font-size: 0.14rem;
+    margin-left: 0.5rem;
+}
+.list-ul a{
+    margin-left: 0.5rem;
+}
+.cont p{
+    width: 6rem;
+}

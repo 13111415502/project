@@ -1,0 +1,68 @@
+{% extends "./layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/css/pc/blogDetails.css">
+<div class="main">
+    <div class="content">
+        <div class="box">
+            {%for item in chapter%}
+            <div class="section">
+                <div class="section-list">
+                    <div class="click">
+                        <p>{{item.title}}</p>
+                    </div>
+                    
+                    <ul class="list-ul">
+                        {%for section in item.sectionList%}
+                        <li><a href="/sections/details/{{section.id}}">{{section.title}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+         
+        </div>
+
+
+    
+    </div>
+
+
+    <div class="column">
+        <p class="column-p ppp">精选</p>
+        <div class="column-banner">
+            <img src="{{contents[0].img}}" alt="" class="column-logo">
+            <div class="column-banner-title">
+                <p class="column-p">{{contents[0].name}}</p>
+            </div>
+        </div>
+        {%for item in contents%}
+       <div class="column-tab">
+            <a href="/chapters/{{item.id}}"><p class="title-title">{{item.name}}</p></a>
+        </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+<script>
+    
+    let btn = document.querySelectorAll(".section-list");
+    let ul = document.querySelectorAll(".list-ul");
+    for(let i in btn){
+        btn[i].onclick = function(){
+        if(ul[i].style.display == "none"){  
+             ul[i].style.display = "block";
+        }else{
+            ul[i].style.display = "none";
+        }
+    }
+    }
+    // console.log("{{contents}}")
+
+
+</script>
+
+
+
+{% endblock %}

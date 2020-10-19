@@ -1,0 +1,63 @@
+{% extends "./layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/css/pc/blogdetails.css">
+<link rel="stylesheet" href="/css/pc/swiper-bundle.min.css">
+<div class="main">
+    <div class="content">
+        <div class="box">
+            <p class="box-title">{{content.title}}</p>
+        </div>
+        <div class="cont">
+            <p class="cont-p">{{content.html_text | safe}}</p>
+        </div>
+
+    </div>
+
+    <div class="column">
+      <ul>
+       {%for item in chapter%}
+          <li class="ul_list" chapterid="{{item.id}}">
+            {{item.title}}
+            <ul class="ul_content">
+              {%for section in item.sectionList%}
+              <li sectionid="{{section.id}}">
+                <a href="/sections/details/{{section.id}}">{{section.title}}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endfor %}
+         </ul>
+    </div>
+</div>
+
+<script src="/js/jquery.js"></script>
+<script>
+  //章的id控制哪一章展开
+  //节的id控制哪一节变色
+  let chapterID = "{{content.chapter_id}}";
+  let sectionID = "{{content.id}}"
+  // console.log("{{chapter}}")
+
+  $(`[chapterid=${chapterID}]`).find(".ul_content").css({display:"block"});
+  $(`[sectionid=${sectionID}]`).addClass("textColor")
+  
+
+  //点击元素
+    $('.ul_list').click(function(){
+      //点击某个元素的时候进行判断其他元素是否隐藏或显示
+      if($(this).find(".ul_content").css('display') == 'none'){
+        //如果隐藏就改成显示 并让同级别元素隐藏
+        $(this).find(".ul_content").css({display:"block"});
+        $(this).siblings().find(".ul_content").css({display:"none"});
+      }else{
+        $(this).find(".ul_content").css({display:"none"});
+      }
+    })
+    
+  
+</script>
+
+
+
+{% endblock %}

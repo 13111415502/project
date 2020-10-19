@@ -1,0 +1,54 @@
+{% extends "./layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/phone/chapter.css">
+<link rel="stylesheet" href="/css/github-markdown.min.css">
+<link rel="stylesheet" href="/css/github.min.css">
+<link rel="stylesheet" href="/css/katex.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="header_container">
+    {% include "./header.html" ignore missing %}
+</div>
+<div class="box">
+    {%for item in chapter%}
+    <div class="section">
+        <div class="section-list">
+            <div class="click">
+                <p>{{item.title}}</p>
+            </div>
+            
+            <ul class="list-ul">
+                {%for section in item.sectionList%}
+                <li><a href="/sections/details/{{section.id}}">{{section.title}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+</div>
+<script>
+    
+    let btn = document.querySelectorAll(".section-list");
+    let ul = document.querySelectorAll(".list-ul");
+    for(let i in btn){
+        btn[i].onclick = function(){
+        if(ul[i].style.display == "none"){  
+             ul[i].style.display = "block";
+        }else{
+            ul[i].style.display = "none";
+        }
+    }
+    }
+    // console.log("{{contents}}")
+
+
+</script>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

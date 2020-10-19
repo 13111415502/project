@@ -1,0 +1,79 @@
+{% extends "./layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/css/pc/resources.css">
+<link rel="stylesheet" href="/css/pc/swiper-bundle.min.css">
+<div class="main">
+    <div class="content">
+        <div class="ziyuan">
+            <p>资源下载</p>
+        </div>
+        {%for item in content%}
+        <div class="cond">
+            <div class="cond-img"><img src="{{item.img}}" alt=""></div>
+            <div class="cond-title"> <p class="lol_p">{{item.title}} </p> <p class="tiquma">提取码：{{item.code}}</p>  </div>
+            <div class="cond-a">
+                <a href="{{item.url}}">立即下载</a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    <div class="column">
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="../img/pc/4.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="../img/pc/5.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="../img/pc/6.jpg" alt=""></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+        <p class="column-p ppp">精选</p>
+        {%for item in content%}
+        <div class="column-banner">
+            <img src="{{item.img}}" alt="" class="column-logo">
+            <div class="column-banner-title">
+                <p class="column-p">{{item.title}} </p>
+                <div class="column-btn">
+                    <a href="{{item.url}}">下载</a>
+                </div>
+            </div>  
+           
+        </div>
+         {% endfor %}
+        <div class="column-tab">
+           
+        </div>
+        
+    </div>
+</div>
+<script src="/js/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "./layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/css/pc/videodetails.css">
+<div class="main">
+    <div class="content">
+        <div class="title">
+            <p>{{content.name}}</p>
+        </div>
+    
+        <div class=vido>
+            {{content.url | safe}}
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="column">
+        <ul class="ull">
+            {%for item in contents%}
+            <li>
+                <a href="/video/details/{{item.id}}">{{item.name}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

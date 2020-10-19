@@ -1,0 +1,46 @@
+{% extends "./layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/css/pc/blogDetails.css">
+<div class="main">
+    <div class="content">
+        <div class="box">
+            <p class="box-biao">{{content.name}}</p>
+            <p class="box-code">{{content.code}}</p>
+            <p class="box-title">{{content.title}}</p>
+        </div>
+        <div class="cont">
+            <p class="cont-p">{{content.md_html | safe}}</p>
+        </div>
+
+
+
+
+
+
+
+    </div>
+    <div class="column">
+        <p class="column-p ppp">精选</p>
+        <div class="column-banner">
+            <img src="{{content.img}}" alt="" class="column-logo">
+            <div class="column-banner-title">
+                <p class="column-p">{{content.name}}</p>
+                <div class="column-btn">
+                    <a href="">阅读</a>
+                </div>
+            </div>
+        </div>
+        {%for item in contents%}
+       <div class="column-tab">
+            <a href="/blogs/details/{{item.id}}"><p class="title-title">{{item.title}}</p></a>
+        </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+
+
+
+{% endblock %}

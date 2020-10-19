@@ -1,0 +1,121 @@
+{% extends "./layout.html" %}
+
+
+
+
+{% block content %}
+<link rel="stylesheet" href="/css/pc/index.css">
+<link rel="stylesheet" href="/css/pc/swiper-bundle.min.css">
+<div class="main">
+    <div class="content">
+
+        <div class="content-header">
+            <p>精选博客</p>
+            <a href="/blogs">查看更多&nbsp;></a>
+        </div>
+        <div class="content-main">
+            <img src="{{blog[0].img}}" alt="" class="content-logo">
+            <div class="content-main-title">
+                <p class="title-p">{{blog[0].name}}</p>
+                <p class="title-s">{{blog[0].code}}</p>
+                <a href="/blogs/details/{{blog[0].id}}"><p class="title-summary">{{blog[0].title}}
+                </p></a>
+            </div>
+        </div>
+        <div class="content-main">
+            <img src="{{blog[1].img}}" alt="" class="content-logo">
+            <div class="content-main-title">
+                <p class="title-p">{{blog[1].name}}</p>
+                <p class="title-s">{{blog[1].code}}</p>
+                <a href="/blogs/details/{{blog[1].id}}"><p class="title-summary">{{blog[1].title}}
+                </p></a>
+            </div>
+        </div>
+        <div class="content-header">
+            <p>精选视频</p>
+            <a href="/video">查看更多&nbsp;></a>
+        </div>
+        <div class="content-main">
+            <img src="{{video[0].img}}" alt="" class="content-logo">
+            <div class="content-main-title">
+                <p class="title-p">{{video[0].name}}</p>
+                <p class="title-s">{{video[0].title}}</p>
+                <div class="title-btn">
+                    <a href="/video/details/{{video[0].id}}">观看</a>
+                </div>
+            </div>
+        </div>
+        <div class="content-main">
+            <img src="{{video[0].img}}" alt="" class="content-logo">
+            <div class="content-main-title">
+                <p class="title-p">{{video[0].name}}</p>
+                <p class="title-s">{{video[0].title}}</p>
+                <div class="title-btn">
+                    <a href="/video/details/{{video[1].id}}">观看</a>
+                </div>
+            </div>
+        </div>
+        <div class="content-footer">
+            <p>更多精彩内容敬请期待~</p>
+        </div>
+       
+
+    
+
+    </div>
+    <div class="column">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="../img/pc/4.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="../img/pc/5.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="../img/pc/6.jpg" alt=""></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+        <p class="column-p ppp">精选</p>
+        <div class="column-banner">
+            <img src="{{video[0].img}}" alt="" class="column-logo">
+            <div class="column-banner-title">
+                <p class="column-p">{{video[0].name}}</p>
+                <div class="column-btn">
+                    <a href="/video/details/{{video[1].id}}">观看</a>
+                </div>
+            </div>
+        </div>
+        {%for item in blog%}
+        <div class="column-tab">
+            <a href="/blogs/details/{{item.id}}"><p class="title-summary">{{item.title}}
+            </p></a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<script src="/js/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  
+</script>
+
+{% endblock %}

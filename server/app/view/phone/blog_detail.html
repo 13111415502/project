@@ -1,0 +1,24 @@
+{% extends "./layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/phone/blog_detail.css">
+<link rel="stylesheet" href="/css/github-markdown.min.css">
+<link rel="stylesheet" href="/css/github.min.css">
+<link rel="stylesheet" href="/css/katex.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="header_container">
+    {% include "./header.html" ignore missing %}
+</div>
+<div class="content">
+    <h3 class="blogname">{{content.title}}</h3>
+    <p class="blogtiem">{{content.createdAt | dateformate}}</p>
+    <div class="text">{{content.md_html | safe}}</div>
+
+</div>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
